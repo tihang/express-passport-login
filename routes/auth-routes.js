@@ -24,38 +24,21 @@ router.get('/logout', (req, res)=>{
 
 //auth google
 router.get('/google', passport.authenticate('google', {
-    scope : ['profile']
+    scope : ['profile', 'email']
 }));
 
 //redirect route for google
-router.get('/google/redirect', passport.authenticate('google'), (req, res) =>{
-    res.redirect('/profile');
-});
+router.get('/google/callback', passport.authenticate('google', {
+    successRedirect : '/profile',
+    failureRedirect : '/'
+}));
 
 //signup route
 router.get('/signup', (req, res) =>{
     res.render('signup', {user : req.user});
   });
 
-//new user route
-// router.post('/signup', (req, res)=>{
-//       var user = new User({
-//         username : req.body.username,
-//         fname : req.body.fname,
-//         lname : req.body.lname,
-//         password : req.body.password
-//       });
-
-//       user.save((err, user) =>{
-//         if(err)
-//           console.log(err);
-//         else{
-//           console.log('success!');
-//           res.redirect('/');
-//         }
-//       });
-//     });
-
+//signup post route
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect : '/profile',
   failureRedirect : '/auth/signup',

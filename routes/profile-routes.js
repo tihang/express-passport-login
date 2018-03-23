@@ -13,4 +13,8 @@ router.get('/', authcheck, (req, res)=>{
     res.render('profile', {user : req.user});
 });
 
+router.post('/', authcheck, (req, res)=>{
+    
+});
+
 module.exports = router;

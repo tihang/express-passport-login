@@ -13,12 +13,14 @@
 <body>
     
     <nav class="navbar navbar-light bg-light justify-content-between">
-        <a href = "/" class="navbar-brand">Rent Mate</a>
+        <a href = "/" class="navbar-brand">MY COMPANY</a>
         <form class="form-inline">
             <% if(!user){%>
+            <a class = "btn btn-danger" href="/auth/google">Log in With Google</a>
             <a class="btn btn-outline-success my-2 my-sm-0" href="/auth/login">Sign in!</a>
             <a class = "btn btn-primary" href="/auth/signup">Sign UP!</a>
             <% }else{%>
+            <a class = "btn btn-primary" href="/profile">Profile</a>
             <a class = "btn btn-danger" href="/auth/logout">Logout</a>
             <%}%>
         </form>

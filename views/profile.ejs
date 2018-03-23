@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Profile</title>
 </head>
 <body>
     <%- include('./navbar-template'); %>
     <h1>Successful login</h1>
-    <h2><%= user.username%></h2>
+    <h2><%= user.local.email %></h2>
+    <h2><%= user.google.email %></h2>
 
     <main>
         <img src="<%= user.thumbnail %>" alt="">
-        <img src="../public/images/Cute_little_monkeys_5425.svg" height="20px" width="20px" alt="">
+        <img src="/static/images/Cute_little_monkeys_5425.svg" height="20px" width="20px" alt="">
     </main>
 </body>
 </html>
