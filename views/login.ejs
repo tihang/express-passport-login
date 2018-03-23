@@ -8,19 +8,20 @@
 </head>
 <%- include('./navbar-template'); %>
 <body>
-    <br><br>
-
-    <br>
-    <div class="col-md-4 mb-3">
-    <form action="/auth/login" method="POST">
-        <div class="form-row">
-            <input class ="form-control" type="text" name = "email" placeholder="Username"><br>
-        </div><br>
-        <div class="form-row">
-        <input class ="form-control" type="passowrd" name = "password" placeholder="Password"><br>
-        </div><br>
-        <input type="Submit" class="btn btn-primary" value="Log In">
-    </form>
+    <div class="container">
+        <br><br>
+        <h2>Login</h2>
+        <br>
+        <div class="col-md-4 mb-3">
+        <form action="/auth/login" method="POST">
+            <div class="form-row">
+                <input class ="form-control" type="text" name = "email" placeholder="Username"><br>
+            </div><br>
+            <div class="form-row">
+            <input class ="form-control" type="password" name = "password" placeholder="Password"><br>
+            </div><br>
+            <input type="Submit" class="btn btn-primary" value="Log In">
+        </form>
     </div>
 </body>
 </html>
