@@ -11,20 +11,39 @@
     <h1>Successful login</h1>
     <h2><%= user.local.email %></h2>
     <h2><%= user.google.email %></h2>
-    <ul>
-            <% posts.forEach(function(post){ %>
-              <%= post.title %> <br>
-              <%= post.description %> <br>
-              <%= post.email %><br><br>
+
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>  
+            <% posts.forEach(function(post, i){ %>
+                <tr>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><%= post.title %></td>
+                    <td><%= post.description %></td>
+                    <td><%= post.email %></td>
+                    <form action="profile/deletepost" method="post">
+                    <td><button class="btn btn-danger" type="submit">Delete</button></td>    
+                    <input type="hidden" name="_id" value="<%= post._id %>">
+                    </form>
+                </tr>
             <% }); %> 
-    </ul>
+        </tbody>
+      </table>
 
     <h2>Create an  AdPost</h2>
     <div class="container">
         <form action="/profile" method="POST">
         <input class="form-control" type="text" name="title" placeholder="Title" required>
-        <input class="form-control" type="text" name="description" placeholder="Description" required>
-        <input type="submit" class="btn btn-submit" value="Post Ad">
+        <input class="form-control" type="text" name="description" placeholder="Description"required>
+        <input type="submit" class="btn btn-primary" value="Post Ad">
         </form>
     </div>
 </body>

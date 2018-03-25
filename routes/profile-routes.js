@@ -35,4 +35,13 @@ router.post('/', authcheck, (req, res)=>{
     });
 });
 
+router.post('/deletepost', authcheck, (req, res)=>{
+    Post.findByIdAndRemove(req.body._id, (err, post) => {
+        if(err) throw err;
+        else{
+            res.redirect('/profile');
+        }
+    });
+});
+
 module.exports = router;
