@@ -4,7 +4,7 @@ var postSchema = mongoose.Schema({
     title : String,
     description : String,
     date : {type: Date , default : Date.now},
-    email : String
+    userID : String
 });
 
 

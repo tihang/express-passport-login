@@ -18,7 +18,6 @@
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Description</th>
-            <th scope="col">Email</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -28,7 +27,6 @@
                     <th scope="row"><%= i+1 %></th>
                     <td><%= post.title %></td>
                     <td><%= post.description %></td>
-                    <td><%= post.email %></td>
                     <form action="profile/deletepost" method="post">
                     <td><button class="btn btn-danger" type="submit">Delete</button></td>    
                     <input type="hidden" name="_id" value="<%= post._id %>">

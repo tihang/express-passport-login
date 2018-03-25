@@ -11,7 +11,7 @@ var authcheck = (req, res, next)=>{
 }
 
 router.get('/', authcheck, (req, res)=>{
-    Post.find({email : req.user.local.email}, (err, posts) => {
+    Post.find({userID : req.user._id}, (err, posts) => {
         if(err) throw err;
         else{
             res.render('profile', {
@@ -26,7 +26,7 @@ router.post('/', authcheck, (req, res)=>{
     var newPost = new Post({
         title : req.body.title,
         description : req.body.description,
-        email : req.user.local.email
+        userID : req.user._id
     });
     
     newPost.save((err) => {
