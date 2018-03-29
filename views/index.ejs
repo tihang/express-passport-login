@@ -8,5 +8,26 @@
       <a class="btn btn-primary btn-lg" href="/auth/signup" role="button">Sign UP!</a>
     </p>
   </div>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>  
+        <% posts.forEach(function(post, i){ %>
+            <tr>
+                <th scope="row"><%= i+1 %></th>
+                <td><%= post.title %></td>
+                <td><%= post.description %></td>
+                <td><%= post.date %></td>
+                <td><%= post.userID %></td>
+            </tr>
+        <% }); %> 
+    </tbody>
+  </table>
   </body>
 </html>

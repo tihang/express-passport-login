@@ -16,6 +16,8 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 
+var Post = require('./models/Posts');
+
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
 
@@ -48,8 +50,11 @@ app.use('/profile', require('./routes/profile-routes'));
 
 
 app.get('/', function(req, res) {
-  res.render('index.ejs', {
-    user : req.user
+  Post.find({}, {}, (err, post) => {
+    res.render('index.ejs', {
+      user : req.user,
+      posts : post
+    });
   });
 });
 
